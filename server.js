@@ -2,7 +2,7 @@ require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
-// mongoose.set('strictQuery', true)
+mongoose.set('strictQuery', true)
 const PORT = process.env.PORT || 4000
 const cors = require("cors")
 
