@@ -4,15 +4,18 @@ const express = require("express")
 const mongoose = require("mongoose")
 mongoose.set('strictQuery', true)
 const cors = require("cors")
+const corsOptions = {
+    origin: "*",
+    credentials: true,
+    optionSuccessStatus: 200,
+}
 
 const workoutRoutes = require("./routes/workouts")
 const userRoutes = require("./routes/user")
 
 // Express app
 const app = express()
-app.use(cors({
-    origin: ["http://localhost:5173", "https://workout-log.onrender.com/"]
-}))
+app.use(cors(corsOptions))
 
 // middleware
 app.use(express.json())
