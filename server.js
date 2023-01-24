@@ -2,7 +2,8 @@ require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
-mongoose.set('strictQuery', true)
+// mongoose.set('strictQuery', true)
+const PORT = process.env.PORT || 4000
 const cors = require("cors")
 
 const workoutRoutes = require("./routes/workouts")
@@ -30,8 +31,8 @@ app.use("/api/user", userRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // Listen for request
-        app.listen(process.env.PORT, () => {
-        console.log("Connected to db and listening on port", process.env.PORT)
+        app.listen(PORT, () => {
+        console.log("Connected to db and listening on port", PORT)
 })
     })
     .catch((error) => {
